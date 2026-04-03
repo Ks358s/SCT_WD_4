@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow - Professional Todo App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Productive workflow</p>
+        <h1>TaskFlow</h1>
+      </div>
+      <div class="header-badge" id="progressText">0% complete</div>
+    </header>
+
+    <section class="composer card">
+      <h2>Add New Task</h2>
+      <form id="taskForm" class="task-form">
+        <div class="field-group">
+          <label for="taskTitle">Task title</label>
+          <input id="taskTitle" type="text" placeholder="Write monthly report" required />
+        </div>
+        <div class="two-column">
+          <div class="field-group">
+            <label for="taskDate">Date</label>
+            <input id="taskDate" type="date" required />
+          </div>
+          <div class="field-group">
+            <label for="taskTime">Time</label>
+            <input id="taskTime" type="time" required />
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Add Task</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-section card">
+      <div class="section-head">
+        <h2>Your Tasks</h2>
+        <div class="stats">
+          <span id="taskCount">0 tasks</span>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </div>
+      <ul id="taskList" class="task-list"></ul>
+      <p id="emptyState" class="empty-state">No tasks yet. Add your first task.</p>
+    </section>
+  </div>
+
+  <template id="taskTemplate">
+    <li class="task-item">
+      <div class="task-main">
+        <label class="check-wrap">
+          <input type="checkbox" class="complete-toggle" />
+          <span class="custom-check"></span>
+        </label>
+        <div class="task-content">
+          <h3 class="task-title"></h3>
+          <p class="task-meta"></p>
+        </div>
+      </div>
+      <div class="task-actions">
+        <button class="btn btn-ghost edit-btn">Edit</button>
+        <button class="btn btn-danger delete-btn">Delete</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="./script.js"></script>
+</body>
+</html>
